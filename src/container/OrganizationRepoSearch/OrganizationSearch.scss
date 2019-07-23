@@ -1,0 +1,22 @@
+.orgnaization-repo-search {
+    .repo-search {
+        margin-bottom: 10px; 
+        .search-box {
+            width: 85%;
+        }
+        .search-button {
+            width: 15%;
+            top: 5px;
+        }
+    }
+    .repo-settings {
+        .header {
+            font-weight: bolder; 
+            text-align: center;
+            padding-top: 20px;
+        }
+        .language-filter {
+            margin-bottom: 20px;
+        }
+    }
+}
