@@ -6,11 +6,7 @@ export const getAllBranchesForRepo = async (orgName: string,
         try {
             const possibleExtensions = githubConstants.branchListAPIExtension.replace('{orgName}', orgName)
                                                                    .replace('{repoName}', repoName)
-            const branchListStatus = await fetch(githubConstants.githubAPIURL + possibleExtensions, {
-                headers: new Headers({
-                    'Authorization': 'token 41f68dc80248b99a59d70ada33c2eb7336bcc39e',
-                })
-            }).catch(function(error) {
+            const branchListStatus = await fetch(githubConstants.githubAPIURL + possibleExtensions).catch((error) => {
                 return null
             })
 

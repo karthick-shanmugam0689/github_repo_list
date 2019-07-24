@@ -45,7 +45,9 @@ const OrganizationRepoSearch = (props: any) => {
         <div className="orgnaization-repo-search">
             <div className="header-title">
                 {
-                    `Branches for Organization ${orgName} for Repo ${repoName}`
+                    orgName && repoName && (
+                        `Branches for Organization ${orgName} for Repo ${repoName}`
+                    )
                 }
             </div>
             <div className="repo-list">

@@ -8,11 +8,7 @@ export const getAllReposForOrganization = async (orgName: string,
             const possibleExtensions = githubConstants.repoListAPIExtension.replace('{orgName}', orgName)
                                                                    .replace('{sortBy}', sortBy)
                                                                    .replace('{sortOrder}', sortOrder)
-            const repoListStatus = await fetch(githubConstants.githubAPIURL + possibleExtensions, {
-                headers: new Headers({
-                    'Authorization': 'token 41f68dc80248b99a59d70ada33c2eb7336bcc39e',
-                })
-            }).catch(function(error) {
+            const repoListStatus = await fetch(githubConstants.githubAPIURL + possibleExtensions).catch((error) => {
                 return null
             })
 

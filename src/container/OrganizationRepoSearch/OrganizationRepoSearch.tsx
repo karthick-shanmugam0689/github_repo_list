@@ -98,7 +98,9 @@ const OrganizationRepoSearch = (props: any) => {
         <div className="orgnaization-repo-search">
             <div className="header-title">
                 {
-                    `Repositories for Organization ${orgName}`
+                    orgName && (
+                        `Repositories for Organization ${orgName}`
+                    )
                 }
             </div>
             <div className="repo-search">
@@ -117,45 +119,49 @@ const OrganizationRepoSearch = (props: any) => {
                     )
                 }
             </div>
-            <div className="repo-settings">
-                <Grid container spacing={3}>
-                    <Grid item xs={3} className="header">
-                        Sort By
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Switcher 
-                            switchOption1="stargazers_count" 
-                            switchOption2="forks_count"
-                            switchOption1Label="STARS"
-                            switchOption2Label="FORKS"
-                            handleChange={handleChangeInSortField}
-                        />
-                    </Grid>
-                    <Grid item xs={3} className="header">
-                        Sort Order
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Switcher 
-                            switchOption1={sortOrderConstants.desc} 
-                            switchOption2={sortOrderConstants.asc}
-                            switchOption1Label="DESC"
-                            switchOption2Label="ASC"
-                            handleChange={handleChangeInSortOrder}
-                        />
-                    </Grid>
-                </Grid>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <Selector
-                            options={languages}
-                            label="Languages"
-                            id="prog-language"
-                            handleChange={handleChangeInLanguage}
-                            cssClass="language-filter"
-                        />
-                    </Grid>
-                </Grid>
-            </div>
+            {
+                repoList && repoList.length > 0 && (
+                    <div className="repo-settings">
+                        <Grid container spacing={3}>
+                            <Grid item xs={3} className="header">
+                                Sort By
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Switcher 
+                                    switchOption1="stargazers_count" 
+                                    switchOption2="forks_count"
+                                    switchOption1Label="STARS"
+                                    switchOption2Label="FORKS"
+                                    handleChange={handleChangeInSortField}
+                                />
+                            </Grid>
+                            <Grid item xs={3} className="header">
+                                Sort Order
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Switcher 
+                                    switchOption1={sortOrderConstants.desc} 
+                                    switchOption2={sortOrderConstants.asc}
+                                    switchOption1Label="DESC"
+                                    switchOption2Label="ASC"
+                                    handleChange={handleChangeInSortOrder}
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <Selector
+                                    options={languages}
+                                    label="Languages"
+                                    id="prog-language"
+                                    handleChange={handleChangeInLanguage}
+                                    cssClass="language-filter"
+                                />
+                            </Grid>
+                        </Grid>
+                    </div>
+                )
+            }
             <div className="repo-list">
                 {
                     repoList && repoList.length > 0 && (
