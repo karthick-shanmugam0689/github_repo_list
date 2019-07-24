@@ -16,6 +16,7 @@ const Selector = (props: IProps) => {
                 native
                 value={value}
                 onChange={handleChangeInSelect}
+                data-testid={'select-'+id}
                 inputProps={{
                     id,
                   }}
